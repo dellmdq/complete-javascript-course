@@ -209,7 +209,7 @@ console.log(john.calcAge());
 /**************************
  * coding challenge 4
  **************************/
-
+/*
  var mark = {
      firstName: 'Mark',
      mass: 90,
@@ -250,3 +250,95 @@ mark.calcBMI();
 console.log(mark);
 console.log(john);
 whoWins(john,mark);
+
+*/
+
+/***********************************
+* coding challenge 5
+ *************************************/
+
+
+ var john = { 
+    bill: [124,48,268,180,42],
+    tip: new Array(),
+    paidAmount: new Array(),
+};
+
+function tipCalculatorMark(bill){
+    if(bill <= 50)
+        return tip = bill * 0.2;
+    else if(50 < bill <= 200)
+        return tip = bill * 0.15;
+    else if(200 < bill)
+        return tip = bill * 0.10;
+    else
+        console.log('Error');
+};
+//console.log(tipCalculator(john.bill[0]));
+
+
+
+function tipAverage(person){
+    //console.log(billArray);
+    var i = 0;
+    //var tipAverage;
+    var sum = 0;
+
+    while(i < person.bill.length){
+        sum += tipCalculatorMark(person.bill[i]);
+        //console.log(sum);
+        person.tip.push(tipCalculatorMark(person.bill[i]));
+        person.paidAmount.push(tipCalculatorMark(person.bill[i]) + person.bill[i]);
+        i++;
+    }
+    return sum / person.bill.length;
+};
+
+console.log(tipAverage(john));
+console.log(john);
+
+//mark family
+
+function tipCalculatorMark(bill){
+    if(bill <= 100)
+        return tip = bill * 0.2;
+    else if(100 < bill <= 300)
+        return tip = bill * 0.10;
+    else if(300 < bill)
+        return tip = bill * 0.25;
+    else
+        console.log('Error');
+};
+
+var mark = { 
+    bill: [77,375,110,45],
+
+
+    tipAverageMark: function(){
+        //console.log(billArray);
+        var i = 0;
+        var tipAverage;
+        var sum = 0;
+        var tip = new Array();
+        var paidAmount = new Array();
+
+        while(i < this.bill.length){
+            sum += tipCalculatorMark(this.bill[i]);
+            //console.log(sum);
+            tip.push(tipCalculatorMark(this.bill[i]));
+            paidAmount.push(tipCalculatorMark(this.bill[i]) + this.bill[i]);
+            i++;
+        }
+        
+        tipAverage = sum / this.bill.length;
+        var results = new Array();
+        results.push(tipAverage);
+        results.push(tip);
+        results.push(paidAmount);
+        
+        return results;
+    }
+};
+
+var resultMark = mark.tipAverageMark();
+console.log(resultMark);
