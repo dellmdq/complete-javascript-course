@@ -342,3 +342,4 @@ var mark = {
 
 var resultMark = mark.tipAverageMark();
 console.log(resultMark);
+
