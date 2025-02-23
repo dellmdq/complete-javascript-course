@@ -121,7 +121,7 @@ TEST DATA: 125, 555, and 44.
 
 //bill = 100
 function calcTip(bill) {
-    if(50 <= bill <= 300) {
+    if (50 <= bill <= 300) {
         console.log(`Bill is ${bill}, the tip is 15%`)
         return bill * 0.15;
     } else {
@@ -131,11 +131,109 @@ function calcTip(bill) {
 }//se puede hacer con ternario para hacerlo más simple en una linea
 
 console.log(`The tip amount is ${calcTip(100)}`);
-const bills = [125,555,44]
+const bills = [125, 555, 44]
 //array tips
-const tips = [calcTip(bills[0]),calcTip(bills[1]),calcTip(bills[2])];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 console.log('array tips: ' + tips)
 //array total
-const total = [tips[0]+bills[0],tips[1]+bills[1],+tips[2]+2]
+const total = [tips[0] + bills[0], tips[1] + bills[1], +tips[2] + 2]
 console.log('array total: ' + total)
 
+//objects methods
+// Solo se pueden usar function expressions para crear metodos
+// dentro de los objetos. Las funciones dentro de los objetos
+//son tratados como un property en js.
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    //metodo function expression
+    // calcAge: function () {
+    //     console.log(this);//the whole jonas object
+    //     return 2037 - this.birthYear
+    // }
+
+    //crear una nueva propiedad desde un method
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        console.log(
+            `${this.firstName} is a ${this.age}-year old teacher, and he has ${this.hasDriversLicense ? 'a' : null} driver's license`);
+    }
+}
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+//Challenge
+//"Jonas is a 46-year old teacher, and he has a/null driver's license"
+jonas.getSummary();
+
+/*
+CHALLENGE #3
+
+Let's go back to Mark and John comparing their BMIs!
+
+This time, let's use objects to implement the calculations! Remember: BMI = mass / (height * height) (mass in kg and height in meters).
+
+Your tasks:
+
+    For each of them, create an object with properties for their
+    full name,
+    mass, and
+    height (Mark Miller and John Smith).
+    Name these objects as mark and john, and their properties exactly as fullName, mass and height.
+
+    Create a calcBMI method on each object to calculate the BMI (the same method on both objects).
+    Assign the BMI value to a property called bmi (lowercase), and also return it from the method.
+
+    Log to the console who has the higher BMI, together with the full name and the respective BMI.
+    Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!".
+
+TEST DATA: Marks weighs 78 kg and is 1.69 m tall. John weighs 92 kg and is 1.95 m tall.
+
+
+👋 OPTIONAL: You can watch my solution in video format in the next lecture
+
+
+IMPORTANT: The ** operator is not supported in this editor. Please make sure to use exactly this formula mass / (height * height), and not this one mass / (height ** 2).
+ */
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+console.log(`mark bmi is ${mark.calcBMI()}`);
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+console.log(`john bmi is ${john.calcBMI()}`);
+
+if(mark.calcBMI() > john.calcBMI()) {
+    console.log(`${mark.fullName} has a higher BMI ${mark.calcBMI()} than ${john.fullName} ${john.calcBMI()}`)
+} else if(mark.calcBMI() < john.calcBMI()) {
+    console.log(`${john.fullName} has a higher BMI ${john.calcBMI()} than ${mark.fullName} ${mark.calcBMI()}`)
+}
