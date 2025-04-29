@@ -118,7 +118,7 @@ Your tasks:
 TEST DATA: 125, 555, and 44.
 
  */
-
+/*
 //bill = 100
 function calcTip(bill) {
     if (50 <= bill <= 300) {
@@ -178,7 +178,7 @@ console.log(jonas.age);
 //Challenge
 //"Jonas is a 46-year old teacher, and he has a/null driver's license"
 jonas.getSummary();
-
+*/
 /*
 CHALLENGE #3
 
@@ -208,6 +208,8 @@ TEST DATA: Marks weighs 78 kg and is 1.69 m tall. John weighs 92 kg and is 1.95 
 
 IMPORTANT: The ** operator is not supported in this editor. Please make sure to use exactly this formula mass / (height * height), and not this one mass / (height ** 2).
  */
+
+/*
 const mark = {
     fullName: 'Mark Miller',
     mass: 78,
@@ -236,4 +238,78 @@ if(mark.calcBMI() > john.calcBMI()) {
     console.log(`${mark.fullName} has a higher BMI ${mark.calcBMI()} than ${john.fullName} ${john.calcBMI()}`)
 } else if(mark.calcBMI() < john.calcBMI()) {
     console.log(`${john.fullName} has a higher BMI ${john.calcBMI()} than ${mark.fullName} ${mark.calcBMI()}`)
+}
+*/
+///////////////////////////////////////
+// Iteration: The for Loop
+
+// console.log('Lifting weights repetition 1 🏋️‍♀️');
+// console.log('Lifting weights repetition 2 🏋️‍♀️');
+// console.log('Lifting weights repetition 3 🏋️‍♀️');
+// console.log('Lifting weights repetition 4 🏋️‍♀️');
+// console.log('Lifting weights repetition 5 🏋️‍♀️');
+// console.log('Lifting weights repetition 6 🏋️‍♀️');
+// console.log('Lifting weights repetition 7 🏋️‍♀️');
+// console.log('Lifting weights repetition 8 🏋️‍♀️');
+// console.log('Lifting weights repetition 9 🏋️‍♀️');
+// console.log('Lifting weights repetition 10 🏋️‍♀️');
+
+// for loop keeps running while condition is TRUE
+/* Class 47
+for (let rep = 1; rep <= 30; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+*/
+
+// class 48. Looping Arrays, Breaking and Continuing
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+const types = [];
+
+// console.log(jonas[0])
+// console.log(jonas[1])
+// ...
+// console.log(jonas[4])
+// jonas[5] does NOT exist
+
+for (let i = 0; i < jonas.length; i++) {
+    // Reading from jonas array
+    console.log(jonas[i], typeof jonas[i]);
+
+    // Filling types array
+    types[i] = typeof jonas[i];
+    // types.push(typeof jonas[i]);
+}
+
+console.log(types);
+
+//calculating age using loops
+console.log('calculating age using loops');
+const years = [1991, 2007, 1995, 1969];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+
+console.log(ages);
+
+//continue and break
+console.log('=== only continue if string')
+for (let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] !== 'string') continue; //saltea la iteración si no es un string el elemento
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+console.log('=== break loop when type number')
+for (let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] === 'number') break; //saltea la iteración si no es un string el elemento
+    console.log(jonas[i], typeof jonas[i]);
 }
