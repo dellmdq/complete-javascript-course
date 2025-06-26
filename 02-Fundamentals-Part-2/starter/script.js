@@ -260,7 +260,7 @@ for (let rep = 1; rep <= 30; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
 */
-
+/*
 // class 48. Looping Arrays, Breaking and Continuing
 const jonas = [
     'Jonas',
@@ -278,7 +278,7 @@ const types = [];
 // ...
 // console.log(jonas[4])
 // jonas[5] does NOT exist
-
+/*
 for (let i = 0; i < jonas.length; i++) {
     // Reading from jonas array
     console.log(jonas[i], typeof jonas[i]);
@@ -312,4 +312,50 @@ console.log('=== break loop when type number')
 for (let i = 0; i < jonas.length; i++) {
     if(typeof jonas[i] === 'number') break; //saltea la iteración si no es un string el elemento
     console.log(jonas[i], typeof jonas[i]);
+}
+*/
+// class 49. Looping Backwards and Loops in Loops
+
+/*
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+for(let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i]);
+}
+
+for(let exercise = 1; exercise <= 3; exercise++) {
+    console.log(`=== Starting exercise ${exercise}`);
+
+    for(let rep = 1; rep <= 4; rep++) {
+        console.log(`exercise: ${exercise} Lifting weights repetition ${rep} 🏋️‍♀️`);
+    }
+}
+
+*/
+
+/*
+// class 50. The while Loop
+let rep = 1;
+while(rep <= 3) {
+    console.log(`WHILE exercise Lifting weights repetition ${rep} 🏋️‍♀️`);
+    rep++;
+}
+*/
+//rolling dice
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while(dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;// Math.random() * 6 genera un numero entre 0 y 5.99999
+    if(dice === 6) {
+        console.log('Loop is about to end...');
+    }
 }
